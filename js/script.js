@@ -56,7 +56,7 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('examsController', function($scope, $rootScope, $http) {	
-		$rootScope.load("exams.json");
+		$rootScope.load("exams");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.exams = data;			
 		});
