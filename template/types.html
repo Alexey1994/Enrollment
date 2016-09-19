@@ -1,0 +1,83 @@
+<div ng-controller="examsFormsController">
+	<div class="row">
+		<button class="btn btn-primary" ng-click="save()">Сохранить </button>
+		<button class="btn btn-primary"  data-toggle="modal" data-target="#newExamsForm">Новый тип </button>
+	</div>
+
+	<div ng-show="saveSuccess" class="alert alert-success">
+		<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
+	  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+	</div>	
+
+	<div ng-show="saveError" class="alert alert-danger">
+		<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
+	</div>	
+
+	<div ng-show="sendError" class="alert alert-danger">
+		<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
+	</div>		
+
+	<table class="table table-hover exams col-xs-12 col-md-12">
+	    <thead>
+	      	<tr>
+	      		<th>Название</th>
+	        	<th>ЦТ</th>
+	        	<th>Экзамены</th>
+	        	<th></th>
+	      	</tr>
+	    </thead>
+	    <tbody>
+	      	<tr ng-repeat="form  in examsForms track by $index">
+	        	<td>
+	        		{{ examsFormName(form) }}
+	        	</td>
+	        	<td>
+	        		<input class="number" ng-model="form.tests" />
+	        	</td>
+	        	<td>
+	        		<input class="number" ng-model="form.exams" />
+	        	</td>
+	        	<td class="text-danger btn-delete" ng-click="examsForms.splice($index, 1)">
+	        		&times;
+	        	</td>
+	      	</tr>	      
+	    </tbody>
+	</table>	
+
+	<!-- Modal -->
+	<div class="modal fade" id="newExamsForm" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      	<!-- Modal content-->
+		    <div class="modal-content">
+		        <div class="modal-header">
+		          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          	<h4 class="modal-title">Новый экзамен</h4>
+		        </div>
+		        <div class="modal-body">
+		        	<div class="form-group">
+						<label>Название экзамена</label>
+	        			<span class="newExamsForm-control">{{ examsFormName(newExamsForm) }}</span>
+	        		</div>	        		
+
+	        		<div class="form-group">
+		        		<label>Количество ЦТ</label>
+		        		<input type="number" class="form-control" ng-model="newExamsForm.tests" />
+		        	</div>
+
+		        	<div class="form-group">
+		        		<label>Количество экзаменов</label>
+		        		<input type="number" class="form-control" ng-model="newExamsForm.exams" />
+		        	</div>
+		        </div>
+		        <div class="modal-footer">
+		          	<button ng-click="addExamForm()" type="button" class="btn btn-default" data-dismiss="modal">Ок</button>
+		        </div>
+		    </div>
+	      
+	    </div>
+	</div>
+
+</div>

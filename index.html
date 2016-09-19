@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Пример маршрутизации в AngularJS</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="style/style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+		<script src="js/script.js"></script>		
+	</head>
+	<body ng-app="RoutingApp">
+		<header>
+			<h1>Админка</h1>	
+		</header>
+
+		<ul class="nav nav-tabs row">
+			  <li class="nav-item col-md-2 col-md-offset-2">
+			    <a class="nav-link active" href="#exams">Экзамены</a>
+			  </li>
+			  <li class="nav-item col-md-2">
+			    <a class="nav-link" href="#types">Типы экзаменов</a>
+			  </li>
+			  <li class="nav-item col-md-2">
+			    <a class="nav-link" href="#relations">Связи</a>
+			  </li>
+			  <li class="nav-item col-md-2">
+			    <a class="nav-link" href="#specialties">Специальности</a>
+			  </li>
+		</ul>
+		<div class="container">
+			<div class="col-md-12 col-xs-12 col-xs-offset-0" ng-view></div>
+		</div>
+	</body>
+</html>

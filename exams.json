@@ -1,0 +1,20 @@
+[
+	{
+		"name": "Математика",
+		"prefix": "math",
+		"language": "ru",
+		"type": "test"
+	},
+	{
+		"name": "Русский",
+		"prefix": "rus",
+		"language": "ru",
+		"type": "test"
+	},
+	{
+		"name": "Физика",
+		"prefix": "phys",
+		"language": "ru",
+		"type": "test"
+	}
+]

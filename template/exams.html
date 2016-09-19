@@ -1,0 +1,108 @@
+<div ng-controller="examsController">
+	<div class="row">
+		<button class="btn btn-primary" ng-click="save()">Сохранить </button>
+		<button class="btn btn-primary"  data-toggle="modal" data-target="#newExam" ng-disabled="examVal.$invalid || restVal.$invalid">Новый 
+		экзамен </button>
+	</div>
+
+	<div ng-show="saveSuccess" class="alert alert-success">
+		<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
+	  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+	</div>	
+
+	<div ng-show="loadError" class="alert alert-danger">
+		<a class="close" aria-label="close"  ng-click="loadError = undefined">&times;</a>
+	  	<strong>Ошибка!</strong> Не удалось загрузить данные.
+	</div>	
+
+	<div ng-show="saveError" class="alert alert-danger">
+		<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+		<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!	  	
+	</div>	
+
+	<div ng-show="sendError" class="alert alert-danger">
+		<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
+	</div>
+
+	
+
+	<table class="table table-hover exams col-xs-12 col-md-12">
+	    <thead>
+	      	<tr>
+	        	<th>Предмет</th>
+	        	<th class="xxs-hide">Тип</th>
+	        	<th>Уникальное имя</th>
+	        	<th>Язык</th>
+	        	<th></th>
+	      	</tr>
+	    </thead>
+	    <tbody>
+	      	<tr ng-repeat="exam  in exams track by $index">
+	        	<td>
+	        		<input class="subject" ng-model="exam.name"/>
+	        	</td>
+	        	<td>
+	        		<select ng-model="exam.type" ng-options="item for item in ['test', 'exam']"></select>
+	        	</td>
+	        	<td>
+	        		<input class="type" ng-model="exam.prefix"/>
+	        	</td>
+	        	<td>
+	        		<select ng-model="exam.language" ng-options="item for item in languages"></select>
+	        	</td>
+	        	<td class="text-danger btn-delete" ng-click="exams.splice($index, 1)">
+	        		&times;
+	        	</td>
+	      	</tr>	      
+	    </tbody>
+	</table>
+
+	<!-- Modal -->
+	<div class="modal fade" id="newExam" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      	<!-- Modal content-->
+		    <div class="modal-content">
+		        <div class="modal-header">
+		          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          	<h4 class="modal-title">Новый экзамен</h4>
+		        </div>
+		        <div class="modal-body">
+		        	<div class="form-group">
+			        	<form name="valExamModal">
+							<label>Название экзамена</label>
+	        				<input class="form-control" placeholder="Название" ng-model="newExam.name" 	name="examVal" required/>
+	        			</form>
+	        		</div>
+
+	        		<div class="form-group">
+		        		<label>Тип экзамена</label>
+		        		<select class="form-control" ng-model="newExam.type" ng-options="item for item in ['test', 'exam']"></select>
+		        	</div>
+
+		        	<div class="form-group">
+		        		<label>Название для REST</label>
+		        		<form name="valRestModal">
+		        			<input name="restVal" class="form-control" placeholder="REST" ng-model="newExam.prefix" required/>
+		        		</form>	
+		        	</div>
+		        </div>
+
+				<div ng-show="valExamModal.examVal.$error.required" class="alert alert-danger">
+	  				<strong>Ошибка!</strong> Заполните поле "Название экзамена"
+				</div>
+
+				<div ng-show="valRestModal.restVal.$error.required" class="alert alert-danger">
+	  				<strong>Ошибка!</strong> Заполните поле "Название для REST"
+				</div>	
+
+		        <div class="modal-footer">
+		          	<button ng-click="addExam()" type="button" class="btn btn-default" data-dismiss="modal" ng-disabled="valExamModal.$invalid || valRestModal.$invalid">Ок</button>
+		        </div>
+		    </div>
+	      
+	    </div>
+	</div>
+
+</div>

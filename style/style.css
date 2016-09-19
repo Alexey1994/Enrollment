@@ -1,0 +1,73 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+header h1 {
+	text-align: center;
+}
+
+.nav-link {
+	text-align: center;
+}
+
+.exams td {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.exams input {
+	border: 0;
+	padding: 5px 15px;	
+	transition: 0.5s;
+	background: none;	
+}
+
+.exams input:focus {
+	border-bottom: 1px solid blue;
+}
+
+.btn-delete {
+	font-size: 30px;
+	text-align: !important;
+	line-height: 0.7em;
+	margin: 0 !important;
+	padding: 0 !important;	
+	padding-right: 15px !important;
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+	.container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	input.subject, input.type {
+		padding-left: 0;
+	}
+
+	input.subject {
+		max-width: 120px;
+	}
+
+	input.type {
+		max-width: 80px;
+	}
+}
+
+@media (max-width: 600px) {
+	input.subject {
+		max-width: 100px;
+	}
+
+	input.type {
+		max-width: 50px;
+	}
+}

@@ -1,0 +1,149 @@
+0. Запрос на получение списка экзаменов
+1. Запрос на сохранение отредактированных данных
+
+2. Запрос на получение списка типов экзаменов
+3. Запрос на сохранение отредактированных данных из п.2
+
+
+0.
+
+GET /exams
+
+RESPONSE [
+			{
+				name: "Математика",
+				prefix: "math",
+				language: "ru",
+				type: "test"
+			},
+			{
+				name: "Русский",
+				prefix: "rus",
+				language: "ru",
+				type: "test"
+			},
+			{
+				name: "Математика",
+				prefix: "mathexam",
+				language: "ru",
+				type: "exam"
+			},
+			{
+				name: "Физика",
+				prefix: "phys",
+				language: "ru",
+				type: "test"
+			}
+		]
+
+
+1. 
+
+POST /exams/save
+
+SENDING DATA [
+			{
+				name: "Математика",
+				prefix: "math",
+				language: "ru",
+				type: "test"
+			},
+			{
+				name: "Русский",
+				prefix: "rus",
+				language: "ru",
+				type: "test"
+			},
+			{
+				name: "Математика",
+				prefix: "mathexam",
+				language: "ru",
+				type: "exam"
+			},
+			{
+				name: "Физика",
+				prefix: "phys",
+				language: "ru",
+				type: "test"
+			}
+		]
+
+RESPONSE { status: "OK" } или { status: "Internal server error"}
+
+
+2. GET /examsForms 
+
+RESPONSE
+
+[
+	{
+		"tests": 3,
+		"exams": 0		
+	},
+	{
+		"tests": 2,
+		"exams": 1
+	},
+	{
+		"tests": 3,
+		"exams": 2
+	}
+]
+
+3. POST /examsforms/save [
+	{
+		"tests": 3,
+		"exams": 0		
+	},
+	{
+		"tests": 2,
+		"exams": 1
+	},
+	{
+		"tests": 3,
+		"exams": 2
+	}
+]
+
+RESPONSE { status: "OK" } или { status: "Internal server error"}
+
+4.  Получение связей 
+
+
+GET /realtions
+
+RESPONSE
+
+[
+	{"prefix": "math", "prefix": "bel", "prefix": "phys"},
+	{"prefix": "math", "prefix": "rus", "prefix": "phys"}
+]
+
+5. Сохранение связей  
+
+POST /realtions/save
+
+[
+	{"prefix": "math", "prefix": "bel", "prefix": "phys"},
+	{"prefix": "math", "prefix": "rus", "prefix": "phys"}
+]
+
+RESPONSE { status: "OK" } или { status: "Internal server error"}
+
+
+6. Получение языков
+
+GET /languages
+
+[
+	{"ru": "Русский"},
+	{"en"}: "Английский"
+]
+
+7. Получение списка уникальных имён специальностей
+
+GET /exam_prefixes
+
+RESPONSE
+
+["math", "rus", "phys", "bel"]
