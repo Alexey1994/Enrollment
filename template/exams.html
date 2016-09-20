@@ -26,37 +26,32 @@
 	</div>
 
 	
-
-	<table class="table table-hover exams col-xs-12 col-md-12">
-	    <thead>
-	      	<tr>
-	        	<th>Предмет</th>
-	        	<th class="xxs-hide">Тип</th>
-	        	<th>Уникальное имя</th>
-	        	<th>Язык</th>
-	        	<th></th>
-	      	</tr>
-	    </thead>
-	    <tbody>
-	      	<tr ng-repeat="exam  in exams track by $index">
-	        	<td>
-	        		<input class="subject" ng-model="exam.name"/>
-	        	</td>
-	        	<td>
-	        		<select ng-model="exam.type" ng-options="item for item in ['test', 'exam']"></select>
-	        	</td>
-	        	<td>
-	        		<input class="type" ng-model="exam.prefix"/>
-	        	</td>
-	        	<td>
-	        		<select ng-model="exam.language" ng-options="item for item in languages"></select>
-	        	</td>
-	        	<td class="text-danger btn-delete" ng-click="exams.splice($index, 1)">
-	        		&times;
-	        	</td>
-	      	</tr>	      
-	    </tbody>
-	</table>
+	<div class="row">
+      	<ul class="list-group" ng-repeat="exam  in exams track by $index">
+      		<li class="list-group-item">
+      			<div class="panel panel-default">
+      				<div class="panel-heading">
+      					<input class="subject" ng-model="exam.name"/>
+      					<span class="delete-btn" ng-click="exams.splice($index, 1)">&times;</span>
+      				</div>
+      				<div class="panel-body">
+      					<div class="form-group">
+	      					<label class="">Тип</label>
+	      					<select class="form-control" ng-model="exam.type" ng-options="item for item in ['test', 'exam']"></select>
+      					</div>
+      					<div class="form-group">
+	      					<label class="">Уникальное имя</label>
+	      					<input class="type form-control" ng-model="exam.prefix"/>
+      					</div>
+      					<div class="form-group">
+	      					<label class="">Язык</label>
+	      					<select class="form-control" ng-model="exam.language" ng-options="item for item in languages"></select>
+      					</div>
+      				</div>
+      			</div>
+      		</li>
+      	</ul>
+	</div>		  
 
 	<!-- Modal -->
 	<div class="modal fade" id="newExam" role="dialog">

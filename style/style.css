@@ -42,6 +42,11 @@ header h1 {
 	cursor: pointer;
 }
 
+.delete-btn {
+	cursor: pointer;
+	float: right;	
+}
+
 @media (max-width: 600px) {	
 	input.subject, input.type {
 		padding-left: 0;

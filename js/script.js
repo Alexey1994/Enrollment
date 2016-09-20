@@ -59,7 +59,7 @@ angular.module('RoutingApp', ['ngRoute'])
 
 	.controller('examsController', function($scope, $rootScope, $http) {	
 		$rootScope.activePage = "exams";
-		$rootScope.load("exams.json");
+		$rootScope.load("/exams");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.exams = data;			
 		});
@@ -95,8 +95,8 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('specialtiesController', function ($scope, $rootScope) {
-		$rootScope.activePage = "specialties";
-		$rootScope.load("specialties.json");
+		$rootScope.activePage = "specialities";
+		$rootScope.load("/specialities");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.specialties = data;		
 		});
@@ -129,7 +129,7 @@ angular.module('RoutingApp', ['ngRoute'])
 
 	.controller('examsFormsController', function($scope, $rootScope) {		
 		$rootScope.activePage = "types";
-		$rootScope.load("examsForms.json");
+		$rootScope.load("/examsForms");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.examsForms = data;	
 			console.log($scope.examsForms);		
@@ -175,7 +175,7 @@ angular.module('RoutingApp', ['ngRoute'])
 
 	.controller('relationsController', function($scope, $rootScope) {		
 		$rootScope.activePage = "relations";
-		$rootScope.load("relations.json");
+		$rootScope.load("/relations");
 		/*$scope.$on('dataLoaded', function(event, data) {
 			$scope.relations = data.relations;
 			$scope.exams = data.exams;
