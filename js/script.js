@@ -72,7 +72,7 @@ angular.module('RoutingApp', ['ngRoute'])
 		$scope.newExam = {
 			name: "",
 			prefix: "",
-			language: "",
+			language: "ru",
 			type: "test"
 		}
 
@@ -81,7 +81,7 @@ angular.module('RoutingApp', ['ngRoute'])
 			$scope.newExam = {
 				name: "",
 				prefix: "",
-				language: "",
+				language: "ru",
 				type: "test"
 			}
 		}
@@ -92,7 +92,7 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('specialtiesController', function ($scope, $rootScope) {
-		$rootScope.load("specialties.json");
+		$rootScope.load("specialties");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.specialties = data;		
 		});
@@ -124,7 +124,7 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('examsFormsController', function($scope, $rootScope) {		
-		$rootScope.load("examsForms.json");
+		$rootScope.load("examsForms");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.examsForms = data;	
 			console.log($scope.examsForms);		

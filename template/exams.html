@@ -82,6 +82,11 @@
 		        	</div>
 
 		        	<div class="form-group">
+		        		<label>Язык</label>
+		        		<select class="form-control" ng-model="newExam.language" ng-options="item for item in languages"></select>
+		        	</div>
+
+		        	<div class="form-group">
 		        		<label>Название для REST</label>
 		        		<form name="valRestModal">
 		        			<input name="restVal" class="form-control" placeholder="REST" ng-model="newExam.prefix" required/>
