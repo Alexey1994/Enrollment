@@ -1,37 +1,40 @@
 <div ng-controller="examsController">
 	<div class="row">
-		<button class="btn btn-primary" ng-click="save()">Сохранить </button>
-		<button class="btn btn-primary"  data-toggle="modal" data-target="#newExam" ng-disabled="examVal.$invalid || restVal.$invalid">Новый 
-		экзамен </button>
-	</div>
+		<div class="col-md-12 col-xs-12">		
+			<button class="btn btn-default btn-lg pull-left"  data-toggle="modal" data-target="#newExam" ng-disabled="examVal.$invalid || restVal.$invalid">Новый экзамен</button>
+			<button class="btn btn-success btn-lg pull-right" ng-click="save()">Сохранить</button>			
+		</div>		
 
-	<div ng-show="saveSuccess" class="alert alert-success">
-		<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
-	  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+		<div class="col-md-12 col-xs-12 alerts-wrapper">
+			<div ng-show="saveSuccess" class="alert alert-success">
+				<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
+			  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+			</div>	
+
+			<div ng-show="loadError" class="alert alert-danger">
+				<a class="close" aria-label="close"  ng-click="loadError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Не удалось загрузить данные.
+			</div>	
+
+			<div ng-show="saveError" class="alert alert-danger">
+				<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+				<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!	  	
+			</div>	
+
+			<div ng-show="sendError" class="alert alert-danger">
+				<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
+			</div>
+		</div>	
 	</div>	
-
-	<div ng-show="loadError" class="alert alert-danger">
-		<a class="close" aria-label="close"  ng-click="loadError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Не удалось загрузить данные.
-	</div>	
-
-	<div ng-show="saveError" class="alert alert-danger">
-		<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
-		<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!	  	
-	</div>	
-
-	<div ng-show="sendError" class="alert alert-danger">
-		<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
-	</div>
 
 	
 	<div class="row exams">
-      	<ul class="list-group" ng-repeat="exam  in exams track by $index">
-      		<li class="list-group-item">
+      	<ul class="list-group">
+      		<li ng-repeat="exam  in exams track by $index" class="list-group-item col-md-4 col-sm-6 col-xs-12">
       			<div class="panel panel-default">
       				<div class="panel-heading">
-      					<input class="subject" ng-model="exam.name"/>
+      					<input class="subject form-control" ng-model="exam.name"/>
       					<span class="delete-btn" ng-click="exams.splice($index, 1)">&times;</span>
       				</div>
       				<div class="panel-body">

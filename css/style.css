@@ -1,0 +1,85 @@
+body {	
+	padding-top: 70px;
+}
+
+.nav-link {
+	text-align: center;
+}
+
+.delete-btn {
+	padding: 4px;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}
+
+.exams {
+	padding-top: 20px;
+}
+
+.exams .list-group-item {
+	border: none;
+}
+
+.exams .subject {
+	display: inline-block;
+	max-width: 90%;
+}
+
+
+.exams .subject  {	
+	background: none;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.exams .subject:focus {
+	border-bottom: 1px solid blue;
+	box-shadow: none;
+}
+/*
+.exams input, .exams select {	
+	background: none;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.exams input:focus, .exams select:focus {
+	border-bottom: 1px solid blue;
+	box-shadow: none;
+}*/
+
+
+.input-hidden {
+	display: inline-block;
+	background: none;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;	
+	width: 0px;
+}
+
+.input-hidden:focus {
+	background: none;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;	
+}
+
+.form-control[disabled] {
+	cursor: default;
+}
+
+.alerts-wrapper {
+	padding-top: 20px;	
+}
+
+@media (max-width: 364px) {
+	.btn.btn-default.btn-lg.pull-left, .btn.btn-success.btn-lg.pull-right {
+		float: none;
+		width: 100%;
+		margin-top: 12px;
+	}
+}

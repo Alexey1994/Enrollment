@@ -1,61 +1,69 @@
 <div ng-controller="specialitiesController">
 	<div class="row">
-		<button class="btn btn-primary" ng-click="save()">Сохранить</button>
-		<button class="btn btn-primary"  data-toggle="modal" data-target="#newSpecForm">Новая специальность</button>
+		<div class="col-md-12 col-xs-12">			
+			<button class="btn btn-default btn-lg pull-left" ng-click="save()">Сохранить</button>
+			<button class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#newSpecForm">Новая специальность</button>
+		</div>
+
+
+		<div class="col-md-12 col-xs-12 alerts-wrapper">			
+			<div ng-show="saveSuccess" class="alert alert-success">
+				<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
+			  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+			</div>	
+
+			<div ng-show="saveError" class="alert alert-danger">
+				<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
+			</div>	
+
+			<div ng-show="sendError" class="alert alert-danger">
+				<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
+			</div>		
+		</div>
 	</div>
 
-	<div ng-show="saveSuccess" class="alert alert-success">
-		<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
-	  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
-	</div>	
 
-	<div ng-show="saveError" class="alert alert-danger">
-		<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
-	</div>	
+	<div class="row exams">
+      	<ul class="list-group">
+      		<li ng-repeat="spec  in specialities track by $index" class="list-group-item col-md-6 col-sm-6 col-xs-12">
+      			<div class="panel panel-default">
+      				<div class="panel-heading">
+      					<input class="subject form-control" ng-model="spec.specialty"/>
+      					<span class="delete-btn" ng-click="specialities.splice($index, 1)">&times;</span>
+      				</div>
+      				<div class="panel-body">
+      					<div class="form-group">
+	      					<label class="">Проходной балл</label>
+	      					<input class="form-control" ng-model="spec.score"/>
+      					</div>
 
-	<div ng-show="sendError" class="alert alert-danger">
-		<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
-	</div>		
+      					<div class="form-group">
+	      					<label class="">Конкурс</label>
+	      					<select class="form-control" ng-model="spec.competition" ng-options="item for item in ['Общий', 'Целевой']"></select>
+      					</div>
+      					
+						<div class="form-group">
+	      					<label class="">Университет</label>
+	      					<input class="form-control" ng-model="spec.university"/>
+      					</div>
 
-	<table class="table table-hover exams col-xs-12 col-md-12">
-	    <thead>
-	      	<tr>
-	      		<th>Название</th>
-	        	<th>Проходной балл</th>
-	        	<th>Конкурс</th>
-	        	<th>Университет</th>
-	        	<th>Факультет</th>
-	        	<th></th>
-	      	</tr>
-	    </thead>
-	    <tbody>
-	      	<tr ng-repeat="spec  in specialities track by $index">
-	        	<td>
-	        		<input ng-model="spec.specialty">
-	        	</td>
-	        	<td>
-	        		<input class="number" ng-model="spec.score" />
-	        	</td>
-	        	<td>
-	        		<select ng-model="spec.competition" ng-options="item for item in ['Общий', 'Целевой']"></select>
-	        	</td>
-	        	<td>
-	        		<input ng-model="spec.university" />
-	        	</td>
-	        	<td>
-	        		<input ng-model="spec.faculty" />
-	        	</td>
-	        	<td class="text-danger btn-delete" ng-click="examsForms.splice($index, 1)">
-	        		&times;
-	        	</td>
-	      	</tr>	      
-	    </tbody>
-	</table>	
+      					<div class="form-group">
+	      					<label class="">Факультет</label>
+	      					<input class="form-control" ng-model="spec.faculty"/>
+      					</div>
+
+      				</div>
+      			</div>
+      		</li>
+      	</ul>
+	</div>
+
+	
 
 	<!-- Modal -->
-<div class="modal fade" id="newSpecForm" role="dialog">
+	<div class="modal fade" id="newSpecForm" role="dialog">
 	    <div class="modal-dialog">
 	    
 	      	<!-- Modal content-->

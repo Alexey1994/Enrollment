@@ -1,84 +1,62 @@
 <div ng-controller="relationsController">
 	<div class="row">
-		<button class="btn btn-primary" ng-click="save()">Сохранить </button>
-		<button class="btn btn-primary"  data-toggle="modal" data-target="#newRelation" ng-click="subjects = exams">Новая связь</button>
+		<div class="col-md-12 col-xs-12">	
+			<button class="btn btn-default btn-lg pull-left" ng-click="save()">Сохранить </button>
+			<button class="btn btn-success btn-lg pull-right"  data-toggle="modal" data-target="#newRelation" ng-click="subjects = exams">Новая связь</button>
+		</div>
+
+		<div class="col-md-12 col-xs-12 alerts-wrapper">	
+			<div ng-show="saveSuccess" class="alert alert-success">
+				<a class="close" aria-label="close" ng-click="saveSuccess = undefined">&times;</a>
+			  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
+			</div>	
+
+			<div ng-show="inputError" class="alert alert-danger">
+				<a class="close" aria-label="close"  ng-click="inputError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Вы попытались ввести некорректные данные.
+			</div>	
+
+			<div ng-show="saveError" class="alert alert-danger">
+				<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
+			</div>	
+
+			<div ng-show="sendError" class="alert alert-danger">
+				<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
+			</div>	
+		</div>
 	</div>
 
-	<div ng-show="saveSuccess" class="alert alert-success">
-		<a class="close" aria-label="close" ng-click="saveSuccess = undefined">&times;</a>
-	  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
-	</div>	
-
-	<div ng-show="inputError" class="alert alert-danger">
-		<a class="close" aria-label="close"  ng-click="inputError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Вы попытались ввести некорректные данные.
-	</div>	
-
-	<div ng-show="saveError" class="alert alert-danger">
-		<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
-	</div>	
-
-	<div ng-show="sendError" class="alert alert-danger">
-		<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
-	  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
-	</div>			
-
-	<!-- <table class="table table-hover exams col-xs-12 col-md-12">
-	    <thead>
-	      	<tr>
-	      		<th>Связи</th>
-	      		<th></th>
-	        	<th></th>
-	      	</tr>
-	    </thead>
-	    <tbody>
-	      	<tr ng-repeat="relation in relations track by $index">	        	
-	        	<td>
-	        		<span ng-repeat="subj in relation track by $index">
-	        			{{ subj.name }} ( {{ subj.type }} ) 
-						<i ng-hide="$index >= relation.length - 1"><=></i>
-	        		</span>
-	        	</td>
-	        	<td class="btn-delete">
-	        		<span ng-click="editIndex = $index" data-toggle="modal" data-target="#editRelation" class="glyphicon glyphicon-pencil"></span>
-	        	</td>
-	        	<td class="text-danger btn-delete" ng-click="relations.splice($index, 1)">
-	        		&times;
-	        	</td>
-	      	</tr>	      
-	    </tbody>
-	</table>	 -->
+	
 
 
-	<table class="table table-hover exams col-xs-12 col-md-12">
-	    <thead>
-	      	<tr>
-	        	<th>1-ый предмет</th>
-	        	<th>2-ой предмет</th>
-	        	<th>3-ий предмет</th>
-	        	<th></th>
-	      	</tr>
-	    </thead>
-	    <tbody>
-	      	<tr ng-repeat="pref in relations track by $index">
-	        	<td>
-	        		<select ng-model="pref[0]" ng-options="item for item in pref"></select>
-	        	</td>
-	        	<td>
-	        		<select ng-model="pref[1]" ng-options="item for item in pref"></select>
-	        	</td>
-	        	<td>
-	        		<select ng-model="pref[2]" ng-options="item for item in pref"></select>
-	        	</td>
-
-
-	        	<td class="text-danger btn-delete" ng-click="relations.splice($index, 1)">
-	        		&times;
-	        	</td>
-	      	</tr>	      
-	    </tbody>
-	</table>
+	<div class="row exams">
+      	<ul class="list-group">
+      		<li ng-repeat="pref in relations track by $index" class="list-group-item col-md-4 col-sm-6 col-xs-12">
+      			<div class="panel panel-default">
+      				<div class="panel-heading">      	
+      					<input class="form-control input-hidden" />
+      					<span class="delete-btn" ng-click="relations.splice($index, 1)">&times;</span>
+      				</div>
+      				<div class="panel-body">
+      					<div class="form-group">
+	      					<label class="">Первый предмет</label>
+	      					<select class="form-control" ng-model="pref[0]" ng-options="item for item in pref"></select>
+      					</div>
+      					<div class="form-group">
+	      					<label class="">Второй предмет</label>
+	      					<select class="form-control" ng-model="pref[1]" ng-options="item for item in pref"></select>
+      					</div>
+      					<div class="form-group">
+	      					<label class="">Третий предмет</label>
+	      					<select class="form-control" ng-model="pref[2]" ng-options="item for item in pref"></select>
+      					</div>
+      				</div>
+      			</div>
+      		</li>
+      	</ul>
+	</div>		
 
 
 	<!-- Modal -->
