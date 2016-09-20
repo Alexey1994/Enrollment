@@ -1,5 +1,4 @@
-app.controller('examsController', function($scope, $rootScope, $http) {	
-	app.controller('examsController', function($scope, $rootScope, $http) {	
+app.controller('examsController', function($scope, $rootScope, $http) {		
 	$rootScope.activePage = "exams";
 	$rootScope.load("/exams");
 	$scope.exams = $rootScope.exams;
