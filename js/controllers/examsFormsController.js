@@ -2,12 +2,12 @@ app.controller('examsFormsController', function($scope, $rootScope) {
 	$rootScope.activePage = "types";
 	$scope.examsforms = $rootScope.examsForms;
 
-	if (!$rootScope.loaded.exams) {
+	if (!$rootScope.loaded.examsForms) {
 		$rootScope.load("/examsForms");		
 		$scope.$on('dataLoaded', function(event, data) {
 			$rootScope.examsForms = data;
 			$scope.examsforms = $rootScope.examsForms;
-			$rootScope.loaded.exams = true;
+			$rootScope.loaded.examsForms = true;
 		});				
 	}
 	
