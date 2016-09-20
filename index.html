@@ -20,20 +20,31 @@
 			<h1>Админка</h1>	
 		</header>
 
-		<ul class="nav nav-tabs row">
-			  <li class="nav-item col-md-2 col-md-offset-2">
-			    <a class="nav-link active" href="#exams">Экзамены</a>
-			  </li>
-			  <li class="nav-item col-md-2">
-			    <a class="nav-link" href="#types">Типы экзаменов</a>
-			  </li>
-			  <li class="nav-item col-md-2">
-			    <a class="nav-link" href="#relations">Связи</a>
-			  </li>
-			  <li class="nav-item col-md-2">
-			    <a class="nav-link" href="#specialties">Специальности</a>
-			  </li>
-		</ul>
+		<nav class="navbar navbar-inverse">
+		  	<div class="container-fluid">		    	
+		    	<div class="navbar-header">
+			      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">		        
+			        	<span class="icon-bar"></span>
+			        	<span class="icon-bar"></span>
+			        	<span class="icon-bar"></span>
+			      	</button>		      	
+			    </div>
+		    
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">				        
+			        	<li class="active"><a href="#exams">Экзамены</a></li>
+			        	<li><a href="#types">Типы экзаменов</a></li>
+			        	<li><a href="#relations">Связи</a></li>
+			        	<li><a href="#specialties">Специальности</a></li>
+			      	</ul>
+
+			      	<ul class="nav navbar-nav navbar-right">
+			        	<li><a href="#">Link</a></li>		        
+			      	</ul>
+			    </div>
+		  	</div>
+		</nav>
+
 		<div class="container">
 			<div class="col-md-12 col-xs-12 col-xs-offset-0" ng-view></div>
 		</div>
