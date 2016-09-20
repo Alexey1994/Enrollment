@@ -128,7 +128,7 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('examsFormsController', function($scope, $rootScope) {		
-		$rootScope.activePage = "examsForms";
+		$rootScope.activePage = "types";
 		$rootScope.load("examsForms.json");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.examsForms = data;	

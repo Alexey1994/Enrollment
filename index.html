@@ -32,10 +32,10 @@
 		    
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      	<ul class="nav navbar-nav">				        
-			        	<li class="active"><a href="#exams">Экзамены</a></li>
-			        	<li><a href="#types">Типы экзаменов</a></li>
-			        	<li><a href="#relations">Связи</a></li>
-			        	<li><a href="#specialties">Специальности</a></li>
+			        	<li ng-class="{'active': (activePage == 'exams')}"><a href="#exams">Экзамены</a></li>
+			        	<li ng-class="{'active': (activePage == 'types')}"><a href="#types">Типы экзаменов</a></li>
+			        	<li ng-class="{'active': (activePage == 'relations')}"><a href="#relations">Связи</a></li>
+			        	<li ng-class="{'active': (activePage == 'specialties')}"><a href="#specialties">Специальности</a></li>
 			      	</ul>			      	
 			    </div>
 		  	</div>
