@@ -1,11 +1,15 @@
 app.controller('relationsController', function($scope, $rootScope) {		
 	$rootScope.activePage = "relations";
 	$scope.relations = $rootScope.relations;
-	$rootScope.load("/relations");		
-	$scope.$on('dataLoaded', function(event, data) {
-		$rootScope.relations = data;
-		$scope.relations = $rootScope.relations;
-	});
+
+	if (!$rootScope.loaded.relations) {
+		$rootScope.load("/relations");		
+		$scope.$on('dataLoaded', function(event, data) {
+			$rootScope.relations = data;
+			$scope.relations = $rootScope.relations;
+			$rootScope.loaded.relations = true;
+		});		
+	}
 
 	$scope.addRelation = function() {	
 		var validated = true;

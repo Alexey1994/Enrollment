@@ -20,8 +20,14 @@ var app = angular.module('RoutingApp', ['ngRoute'])
 
 	.run(function($rootScope, $http) {
 		$rootScope.activePage = "";
+		$rootScope.loaded = {
+			exams: false,
+			relations: false,
+			types: false,
+			specialities: false
+		}
 
-		$rootScope.load = function(url) {			
+		$rootScope.load = function(url) {
 			$http({
 				method: "get",				
 				url: url

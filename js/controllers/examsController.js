@@ -1,11 +1,15 @@
 app.controller('examsController', function($scope, $rootScope, $http) {		
 	$rootScope.activePage = "exams";
-	$rootScope.load("/exams");
 	$scope.exams = $rootScope.exams;
-	$scope.$on('dataLoaded', function(event, data) {
-		$rootScope.exams = data;
-		$scope.exams = $rootScope.exams;
-	});
+
+	if (!$rootScope.loaded.exams) {
+		$rootScope.load("/exams");	
+		$scope.$on('dataLoaded', function(event, data) {
+			$rootScope.exams = data;
+			$scope.exams = $rootScope.exams;
+			$rootScope.loaded.exams = true;
+		});
+	}
 
 	$http.get("languages.json").then(function(data){
 		$scope.languages=[];
