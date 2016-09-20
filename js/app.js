@@ -32,9 +32,13 @@ var app = angular.module('RoutingApp', ['ngRoute'])
 				method: "get",				
 				url: url
 			}).then(function(response) {				
-				$rootScope.$$listeners.dataLoaded = [];
-				$rootScope.$broadcast('dataLoaded', response.data);
-				console.log("data succesfully loaded" , response);
+				if (typeof response.data == 'string') {
+					console.log('404');
+					return;
+				}	
+				
+				$rootScope.$$listeners.dataLoaded = [];				
+				$rootScope.$broadcast('dataLoaded', response.data);				
 			}, function(error) {
 				$rootScope.loadError = true;
 				console.log("Loading error", error);
