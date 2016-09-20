@@ -7,17 +7,17 @@
 
 		<div class="col-md-12 col-xs-12 alerts-wrapper">
 			<div ng-show="saveSuccess" class="alert alert-success">
-				<a class="close" aria-label="close" ng-click="sendSuccess = undefined">&times;</a>
+				<a class="close" aria-label="close" data-dismiss="alert" ng-click="sendSuccess = undefined">&times;</a>
 			  	<strong>Сохранено!</strong> Ваши изменения успешно сохранены.
 			</div>	
 
 			<div ng-show="saveError" class="alert alert-danger">
-				<a class="close" aria-label="close"  ng-click="saveError = undefined">&times;</a>
+				<a class="close" aria-label="close" data-dismiss="alert"  ng-click="saveError = undefined">&times;</a>
 			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Попробуйте повторить действие позже.
 			</div>	
 
 			<div ng-show="sendError" class="alert alert-danger">
-				<a class="close" aria-label="close" ng-click="sendError = undefined">&times;</a>
+				<a class="close" aria-label="close" data-dismiss="alert" ng-click="sendError = undefined">&times;</a>
 			  	<strong>Ошибка!</strong> Сохранить данные не удалось. Проверьте данные!
 			</div>		
 		</div>
