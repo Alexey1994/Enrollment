@@ -34,7 +34,7 @@ var app = angular.module('RoutingApp', ['ngRoute'])
 			}).then(function(response) {				
 				$rootScope.$$listeners.dataLoaded = [];
 				$rootScope.$broadcast('dataLoaded', response.data);
-				console.log("data succesfully loaded" , response.data);
+				console.log("data succesfully loaded" , response);
 			}, function(error) {
 				$rootScope.loadError = true;
 				console.log("Loading error", error);
