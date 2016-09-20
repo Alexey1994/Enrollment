@@ -1,4 +1,4 @@
-<div ng-controller="specialtiesController">
+<div ng-controller="specialitiesController">
 	<div class="row">
 		<button class="btn btn-primary" ng-click="save()">Сохранить</button>
 		<button class="btn btn-primary"  data-toggle="modal" data-target="#newSpecForm">Новая специальность</button>
@@ -31,7 +31,7 @@
 	      	</tr>
 	    </thead>
 	    <tbody>
-	      	<tr ng-repeat="spec  in specialties track by $index">
+	      	<tr ng-repeat="spec  in specialities track by $index">
 	        	<td>
 	        		<input ng-model="spec.specialty">
 	        	</td>

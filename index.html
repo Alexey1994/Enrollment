@@ -6,14 +6,18 @@
 
 		<link rel="stylesheet" href="css/bootstrap.css">
 
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/angular.js"></script>
-		<script src="js/angular-route.js"></script>
+		<script src="js/libs/jquery.js"></script>
+		<script src="js/libs/bootstrap.js"></script>
+		<script src="js/libs/angular.js"></script>
+		<script src="js/libs/angular-route.js"></script>
 
 		<link rel="stylesheet" href="style/style.css">
 
-		<script src="js/script.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/examsController.js"></script>
+		<script src="js/controllers/examsFormsController.js"></script>
+		<script src="js/controllers/relationsController.js"></script>
+		<script src="js/controllers/specialitiesController.js"></script>
 	</head>
 	<body ng-app="RoutingApp">		
 		<nav class="navbar navbar-inverse">
@@ -31,7 +35,7 @@
 			        	<li ng-class="{'active': (activePage == 'exams')}"><a href="#exams">Экзамены</a></li>
 			        	<li ng-class="{'active': (activePage == 'types')}"><a href="#types">Типы экзаменов</a></li>
 			        	<li ng-class="{'active': (activePage == 'relations')}"><a href="#relations">Связи</a></li>
-			        	<li ng-class="{'active': (activePage == 'specialties')}"><a href="#specialties">Специальности</a></li>
+			        	<li ng-class="{'active': (activePage == 'specialities')}"><a href="#specialities">Специальности</a></li>
 			      	</ul>			      	
 			    </div>
 		  	</div>
