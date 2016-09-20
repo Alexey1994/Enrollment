@@ -19,6 +19,8 @@ angular.module('RoutingApp', ['ngRoute'])
 	}])
 
 	.run(function($rootScope, $http) {
+		$rootScope.activePage = "";
+
 		$rootScope.load = function(url) {			
 			$http({
 				method: "get",				
@@ -26,7 +28,7 @@ angular.module('RoutingApp', ['ngRoute'])
 			}).then(function(response) {				
 				$rootScope.$$listeners.dataLoaded = [];
 				$rootScope.$broadcast('dataLoaded', response.data);
-				console.log("data succesfully loaded" , response.data);				
+				console.log("data succesfully loaded" , response.data);
 			}, function(error) {
 				$rootScope.loadError = true;
 				console.log("Loading error", error);
@@ -56,7 +58,8 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('examsController', function($scope, $rootScope, $http) {	
-		$rootScope.load("exams");
+		$rootScope.activePage = "exams";
+		$rootScope.load("exams.json");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.exams = data;			
 		});
@@ -92,7 +95,8 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('specialtiesController', function ($scope, $rootScope) {
-		$rootScope.load("specialties");
+		$rootScope.activePage = "specialties";
+		$rootScope.load("specialties.json");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.specialties = data;		
 		});
@@ -124,7 +128,8 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('examsFormsController', function($scope, $rootScope) {		
-		$rootScope.load("examsForms");
+		$rootScope.activePage = "examsForms";
+		$rootScope.load("examsForms.json");
 		$scope.$on('dataLoaded', function(event, data) {
 			$scope.examsForms = data;	
 			console.log($scope.examsForms);		
@@ -169,6 +174,7 @@ angular.module('RoutingApp', ['ngRoute'])
 	})
 
 	.controller('relationsController', function($scope, $rootScope) {		
+		$rootScope.activePage = "relations";
 		$rootScope.load("relations.json");
 		/*$scope.$on('dataLoaded', function(event, data) {
 			$scope.relations = data.relations;
