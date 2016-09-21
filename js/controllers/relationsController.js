@@ -92,12 +92,14 @@ app.controller('relationsController', function($scope, $rootScope) {
 	}
 	
 
-	
+
 	$scope.save = function() {						
 		var preparedRelations = [];
 		$scope.relations.forEach(function(relation) {
 			preparedRelations.push(relation[0].prefix, relation[1].prefix, relation[2].prefix)
 		})
+
+		console.log('preparedRelations', preparedRelations)
 
 		$rootScope.save("/relations/save", preparedRelations, $scope);
 	}
