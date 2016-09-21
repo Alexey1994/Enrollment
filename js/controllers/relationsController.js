@@ -43,6 +43,10 @@ app.controller('relationsController', function($scope, $rootScope) {
 	$scope.updateRelation = function() {
 		var validated = true;
 
+		if ($scope.updateRelation.length != 3)
+			validated = false;
+		
+
 		for (var i = 0; i < $scope.editingRelation.length; i++) 
 			for (var j = 0; j < $scope.editingRelation.length; j++) 
 				if (j != i && 
@@ -64,6 +68,9 @@ app.controller('relationsController', function($scope, $rootScope) {
 
 	$scope.addRelation = function() {	
 		var validated = true;
+
+		if ($scope.newRelation.length != 3)
+			validated = false;
 
 		for (var i = 0; i < $scope.newRelation.length; i++) 
 			for (var j = 0; j < $scope.newRelation.length; j++) 
