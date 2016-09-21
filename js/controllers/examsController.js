@@ -5,9 +5,11 @@ app.controller('examsController', function($scope, $rootScope, $http) {
 	if (!$rootScope.loaded.exams) {
 		$rootScope.load("/exams");	
 		$scope.$on('dataLoaded', function(event, data) {
-			$rootScope.exams = data;
-			$scope.exams = $rootScope.exams;
-			$rootScope.loaded.exams = true;
+			if (!$rootScope.loaded.exams) {
+				$rootScope.exams = data;
+				$scope.exams = $rootScope.exams;
+				$rootScope.loaded.exams = true;
+			}
 		});
 	}
 

@@ -5,9 +5,13 @@ app.controller('specialitiesController', function ($scope, $rootScope) {
 	if (!$rootScope.loaded.specialities) {
 		$rootScope.load("/specialities");
 		$scope.$on('dataLoaded', function(event, data) {
-			$rootScope.specialities = data;
-			$scope.specialities = $rootScope.specialities;
-			$rootScope.loaded.specialities = true;
+			if (!$rootScope.loaded.specialities) {
+				$rootScope.specialities = data;
+				$scope.specialities = $rootScope.specialities;
+				$rootScope.loaded.specialities = true;
+
+				console.log('specialities', $scope.specialities)
+			}
 		});
 	}
 

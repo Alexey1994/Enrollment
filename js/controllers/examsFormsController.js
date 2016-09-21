@@ -5,9 +5,11 @@ app.controller('examsFormsController', function($scope, $rootScope) {
 	if (!$rootScope.loaded.examsForms) {
 		$rootScope.load("/examsForms");		
 		$scope.$on('dataLoaded', function(event, data) {
-			$rootScope.examsForms = data;
-			$scope.examsforms = $rootScope.examsForms;
-			$rootScope.loaded.examsForms = true;
+			if (!$rootScope.loaded.examsForms) {
+				$rootScope.examsForms = data;
+				$scope.examsforms = $rootScope.examsForms;
+				$rootScope.loaded.examsForms = true;
+			}
 		});				
 	}
 	
