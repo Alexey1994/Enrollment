@@ -5,7 +5,7 @@ app.controller('specialitiesController', function ($scope, $rootScope) {
 	if (!$rootScope.loaded.specialities) {
 		$rootScope.load("/specialties");
 		$scope.$on('dataLoaded', function(event, data) {
-			if (data.type == 'specialities') {
+			if (data.type == 'specialties') {
 				$rootScope.specialities = data;
 				$scope.specialities = $rootScope.specialities;
 				$rootScope.loaded.specialities = true;
