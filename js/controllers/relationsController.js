@@ -18,7 +18,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 					$rootScope.loaded.exams = true;
 
 					console.log('Exams', $scope.exams, 'relations', $scope.relations)
-				}
+				})
 			}			
 		});		
 	}
