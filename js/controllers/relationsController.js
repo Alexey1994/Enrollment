@@ -92,6 +92,11 @@ app.controller('relationsController', function($scope, $rootScope) {
 	}
 	
 	$scope.save = function() {						
-		$rootScope.save("/relations/save", $scope.relations, $scope);
+		var preparedRelations = [];
+		$scope.relations.forEach(function(relation) {
+			preparedRelations.push(relation[0].prefix, relation[1].prefix, relation[2].prefix)
+		})
+
+		$rootScope.save("/relations/save", preparedRelations, $scope);
 	}
 })	
