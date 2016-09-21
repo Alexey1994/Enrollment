@@ -91,6 +91,8 @@ app.controller('relationsController', function($scope, $rootScope) {
 		$scope.newRelation = [];			
 	}
 	
+
+	
 	$scope.save = function() {						
 		var preparedRelations = [];
 		$scope.relations.forEach(function(relation) {
