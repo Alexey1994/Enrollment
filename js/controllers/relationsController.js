@@ -8,6 +8,8 @@ app.controller('relationsController', function($scope, $rootScope) {
 			$rootScope.relations = data;
 			$scope.relations = $rootScope.relations;
 			$rootScope.loaded.relations = true;
+
+			console.log(data, $scope.relations);
 		});		
 	}
 
