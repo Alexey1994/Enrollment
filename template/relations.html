@@ -44,8 +44,8 @@
       				</div>
       				<div class="panel-body">
       					<div class="form-group" ng-repeat="subj in rel track by $index">
-	      					<label class="">Предмет {{$index}}</label>
-	      					{{ subj.name }}	      					
+	      					<label class="">Предмет {{$index + 1}}</label>
+	      					{{ subj.name }} ({{ subj.prefix }}, {{ subj.type }})
       					</div>      					
       				</div>
       			</div>
