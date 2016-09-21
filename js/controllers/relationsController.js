@@ -1,6 +1,7 @@
 app.controller('relationsController', function($scope, $rootScope) {		
 	$rootScope.activePage = "relations";
 	$scope.relations = $rootScope.relations;
+	console.log($scope.relations);
 
 	if (!$rootScope.loaded.relations) {
 		$rootScope.load("/relations");		
