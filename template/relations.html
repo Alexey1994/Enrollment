@@ -106,19 +106,17 @@
 		        </div>
 		        <div class="modal-body">
 	        		<div class="form-group">
-		        		<label>Предметы {{editIndex}}</label>
+		        		<label>Предметы</label>
 
 		        		<div ng-repeat="subj in relations[editIndex] track by $index">
-			        		<select ng-model="relation[editIndex][$index]" ng-options="exam as exam.name + ',' + exam.type for exam in exams"/>
+			        		<select ng-model="relations[editIndex][$index]" ng-options="exam as exam.name + ',' + exam.type for exam in exams"/>
 
-			        		<button type="button" ng-click="newRelation.splice($index, 1)">&times;</button>
+			        		<button type="button" ng-click="relations[editIndex].splice($index, 1)">&times;</button>
 		        		</div>
 
-		        		<button ng-click="newRelation.push(exams[0])" ng-disabled="newRelation.length == exams.length">
+		        		<button ng-click="relations[editIndex].push(exams[0])" ng-disabled="relations[editIndex].length == exams.length">
 		        			Добавить
-		        		</button>
-
-		        		{{newRelation}}
+		        		</button>		        		
 		        	</div>		        	
 		        </div>
 		        <div class="modal-footer">
