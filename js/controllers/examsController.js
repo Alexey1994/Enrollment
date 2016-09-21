@@ -1,6 +1,6 @@
 app.controller('examsController', function($scope, $rootScope, $http) {		
 	$rootScope.activePage = "exams";
-	$scope.exams = $rootScope.exams;
+	$scope.exams = ($rootScope.exams) ? $rootScope.exams : [];
 
 	if (!$rootScope.loaded.exams) {
 		$rootScope.load("/exams");	

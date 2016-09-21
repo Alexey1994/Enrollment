@@ -1,6 +1,6 @@
 app.controller('specialitiesController', function ($scope, $rootScope) {
 	$rootScope.activePage = "specialities";
-	$scope.specialities = $rootScope.specialities;
+	$scope.specialities = ($rootScope.specialities) ? $rootScope.specialities : [];
 
 	if (!$rootScope.loaded.specialities) {
 		$rootScope.load("/specialities");

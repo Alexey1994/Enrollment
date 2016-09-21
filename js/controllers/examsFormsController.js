@@ -1,6 +1,6 @@
 app.controller('examsFormsController', function($scope, $rootScope) {		
 	$rootScope.activePage = "types";
-	$scope.examsforms = $rootScope.examsForms;
+	$scope.examsforms = ($rootScope.examsForms) ? $rootScope.examsForms : [];
 
 	if (!$rootScope.loaded.examsForms) {
 		$rootScope.load("/examsForms");		
