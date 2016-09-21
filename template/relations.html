@@ -1,7 +1,7 @@
 <div ng-controller="relationsController">
 	<div class="row">
 		<div class="col-md-12 col-xs-12">	
-			<button class="btn btn-default btn-lg pull-left" data-toggle="modal" data-target="#newRelation" ng-click="subjects = exams" ng-disabled="!loaded.exams">Новая связь</button>
+			<button class="btn btn-default btn-lg pull-left" data-toggle="modal" data-target="#newRelation" ng-disabled="loaded.exams">Новая связь</button>
 			<button class="btn btn-success btn-lg pull-right" ng-click="save()">Сохранить</button>
 		</div>
 
@@ -37,7 +37,7 @@
       			<div class="panel panel-default">
       				<div class="panel-heading">      	
       					<input class="form-control input-hidden" />
-      					<span data-toggle="modal" data-target="editRelation" class="glyphicon glyphicon-pencil pull-left" ng-click="editRelation($index)">&times;</span> 
+      					<span data-toggle="modal" data-target="editRelation" class="glyphicon glyphicon-pencil edit-btn" ng-click="editRelation($index)"></span> 
       					<span class="delete-btn" ng-click="relations.splice($index, 1)">&times;</span>
       				</div>
       				<div class="panel-body">
@@ -107,12 +107,12 @@
 		        		<label>Предметы {{editIndex}}</label>
 
 		        		<div ng-repeat="subj in relations[editIndex] track by $index">
-			        		<select ng-model="relation[editIndex][$index]" ng-options="exam as exam.name + ',' + exam.type for exam in subjects"/>
+			        		<select ng-model="relation[editIndex][$index]" ng-options="exam as exam.name + ',' + exam.type for exam in exams"/>
 
 			        		<button type="button" ng-click="newRelation.splice($index, 1)">&times;</button>
 		        		</div>
 
-		        		<button ng-click="newRelation.push(subjects[0])" ng-disabled="newRelation.length == subjects.length">
+		        		<button ng-click="newRelation.push(exams[0])" ng-disabled="newRelation.length == exams.length">
 		        			Добавить
 		        		</button>
 

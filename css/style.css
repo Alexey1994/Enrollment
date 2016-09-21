@@ -13,6 +13,13 @@ body {
     font-size: 20px;
 }
 
+.edit-btn {
+	padding: 4px;
+    cursor: pointer;
+    float: left;    
+    font-size: 20px;
+}
+
 .exams {
 	padding-top: 20px;
 }
