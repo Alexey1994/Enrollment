@@ -74,12 +74,13 @@
 		        		<label>Предметы</label>
 
 		        		<div ng-repeat="subj in newRelation track by $index">
-			        		<select ng-model="newRelation[$index]" ng-options="exam as exam.name + ',' + exam.type for exam in subjects"/>
+			        		<select ng-model="newRelation[$index]" 
+			        				ng-options="exam as (exam.name + ',' + exam.type) for exam in exams"/>
 
 			        		<button type="button" ng-click="newRelation.splice($index, 1)">&times;</button>
 		        		</div>
 
-		        		<button ng-click="newRelation.push(subjects[0])" ng-disabled="newRelation.length == subjects.length">
+		        		<button ng-click="newRelation.push(exams[0])" ng-disabled="newRelation.length == exams.length">
 		        			Добавить
 		        		</button>
 		        		

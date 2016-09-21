@@ -5,15 +5,15 @@ app.controller('relationsController', function($scope, $rootScope) {
 
 	if (!$rootScope.loaded.relations) {
 		$rootScope.load("/relations");		
-		$scope.$on('dataLoaded', function(event, data) {
+		$scope.$on('dataLoaded', function(event, data1) {
 			if (!$rootScope.loaded.exams) {
 				$rootScope.load("/exams");				
-				$rootScope.relations = data;
+				$rootScope.relations = data1;
 				$scope.relations = $rootScope.relations;
 				$rootScope.loaded.relations = true;
 
-				$scope.$on('dataLoaded', function(event, data) {
-					$rootScope.exams = data;
+				$scope.$on('dataLoaded', function(event, data2) {
+					$rootScope.exams = data2;
 					$scope.exams = $rootScope.exams;
 					$rootScope.loaded.exams = true;
 
