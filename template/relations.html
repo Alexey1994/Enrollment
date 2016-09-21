@@ -1,7 +1,7 @@
 <div ng-controller="relationsController">
 	<div class="row">
 		<div class="col-md-12 col-xs-12">	
-			<button class="btn btn-default btn-lg pull-left" data-toggle="modal" data-target="#newRelation" ng-click="subjects = exams">Новая связь</button>
+			<button class="btn btn-default btn-lg pull-left" data-toggle="modal" data-target="#newRelation" ng-click="subjects = exams" ng-disabled="!loaded.exams">Новая связь</button>
 			<button class="btn btn-success btn-lg pull-right" ng-click="save()">Сохранить</button>
 		</div>
 
