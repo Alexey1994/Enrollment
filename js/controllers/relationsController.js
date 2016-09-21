@@ -32,7 +32,30 @@ app.controller('relationsController', function($scope, $rootScope) {
 
 	$scope.newRelation = [];
 	$scope.editRelation = function(index) {
-		$scope.editIndex = index;
+		$scope.editingIndex = index;
+		$scope.editingRelation = JSON.parse(JSON.stringify($scope.relations[index]));
+	}
+
+	$scope.updateRelation = function() {
+		var validated = true;
+
+		for (var i = 0; i < $scope.editingRelation.length; i++) 
+			for (var j = 0; j < $scope.editingRelation.length; j++) 
+				if (j != i && 
+					$scope.editingRelation[i].name == $scope.editingRelation[j].name &&
+					$scope.editingRelation[i].type == $scope.editingRelation[j].type) 
+					validated = false;
+
+		if ($scope.editingRelation.length < 2)
+			validated = false;
+
+		if (!validated) {
+			$scope.inputError = true;
+			return;
+		}
+
+		$scope.relations[$scope.editingIndex] = JSON.parse(JSON.stringify($scope.editingRelation));
+		$scope.editingRelation = [];
 	}
 
 	$scope.addRelation = function() {	
