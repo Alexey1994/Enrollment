@@ -37,7 +37,9 @@
       			<div class="panel panel-default">
       				<div class="panel-heading">      	
       					<input class="form-control input-hidden" />
-      					<span data-toggle="modal" data-target="#editRelation" class="glyphicon glyphicon-pencil edit-btn" ng-click="editRelation($index)"></span> 
+      					<span data-toggle="modal" data-target="#editRelation">
+      						<span class="glyphicon glyphicon-pencil edit-btn" ng-click="editRelation($index)"></span>
+      					</span> 
       					<span class="delete-btn" ng-click="relations.splice($index, 1)">&times;</span>
       				</div>
       				<div class="panel-body">
