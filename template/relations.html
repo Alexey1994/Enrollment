@@ -37,12 +37,13 @@
       			<div class="panel panel-default">
       				<div class="panel-heading">      	
       					<input class="form-control input-hidden" />
+      					<span class="glyphicon glyphicon-pencil pull-left" ng-click="(editIndex = $index)">&times;</span>
       					<span class="delete-btn" ng-click="relations.splice($index, 1)">&times;</span>
       				</div>
       				<div class="panel-body">
-      					<div class="form-group">
-	      					<label class="">Первый предмет</label>	      					
-	      					{{ rel }}
+      					<div class="form-group" ng-repeat="subj in rel track by $index">
+	      					<label class="">Предмет {{$index}}</label>	      					
+	      					{{ subj }}
       					</div>      					
       				</div>
       			</div>
