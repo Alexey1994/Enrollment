@@ -3,7 +3,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 	$scope.relations = ($rootScope.relations) ? $rootScope.relations : [];
 
 	var dataLoadedCallback = function(event, data) {
-		if (data instanceof Array && $rootScope.loaded.relations) {
+		if (data.type == 'exams') {
 			// Значит, это пришли экзамены
 			if (!$rootScope.loaded.exams) {
 				console.log('exams', JSON.parse(JSON.stringify(data)));
@@ -11,7 +11,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 				$scope.exams = $rootScope.exams;
 				$rootScope.loaded.exams = true;
 			}
-		} else if (data instanceof Array) {
+		} else if (data.type == 'relations') {
 			// Значит пришли relations
 			if (!$rootScope.loaded.relations) {
 				console.log('relations', JSON.parse(JSON.stringify(data)));

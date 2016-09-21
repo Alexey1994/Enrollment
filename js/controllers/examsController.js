@@ -5,7 +5,7 @@ app.controller('examsController', function($scope, $rootScope, $http) {
 	if (!$rootScope.loaded.exams) {
 		$rootScope.load("/exams");	
 		$scope.$on('dataLoaded', function(event, data) {
-			if (!$rootScope.loaded.exams) {
+			if (data.type == 'exams') {
 				$rootScope.exams = data;
 				$scope.exams = $rootScope.exams;
 				$rootScope.loaded.exams = true;

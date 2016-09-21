@@ -37,7 +37,8 @@ var app = angular.module('RoutingApp', ['ngRoute'])
 					return;
 				}	
 				
-				$rootScope.$$listeners.dataLoaded = [];				
+				$rootScope.$$listeners.dataLoaded = [];
+				response.data.type = url.substr(1, url.length);
 				$rootScope.$broadcast('dataLoaded', response.data);				
 			}, function(error) {
 				$rootScope.loadError = true;

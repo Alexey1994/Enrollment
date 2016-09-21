@@ -5,7 +5,7 @@ app.controller('examsFormsController', function($scope, $rootScope) {
 	if (!$rootScope.loaded.examsForms) {
 		$rootScope.load("/examsForms");		
 		$scope.$on('dataLoaded', function(event, data) {
-			if (!$rootScope.loaded.examsForms) {
+			if (data.type == 'examsForms') {
 				$rootScope.examsForms = data;
 				$scope.examsforms = $rootScope.examsForms;
 				$rootScope.loaded.examsForms = true;
