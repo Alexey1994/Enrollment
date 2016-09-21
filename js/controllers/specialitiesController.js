@@ -3,7 +3,7 @@ app.controller('specialitiesController', function ($scope, $rootScope) {
 	$scope.specialities = ($rootScope.specialities) ? $rootScope.specialities : [];
 
 	if (!$rootScope.loaded.specialities) {
-		$rootScope.load("/specialities");
+		$rootScope.load("/specialties");
 		$scope.$on('dataLoaded', function(event, data) {
 			if (!$rootScope.loaded.specialities) {
 				$rootScope.specialities = data;
@@ -35,6 +35,6 @@ app.controller('specialitiesController', function ($scope, $rootScope) {
 	}
 
 	$scope.save = function() {						
-		$rootScope.save("/specialities/save", $scope.specialities, $scope);
+		$rootScope.save("/specialties/save", $scope.specialities, $scope);
 	}
 })
