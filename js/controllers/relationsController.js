@@ -3,8 +3,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 	$scope.relations = ($rootScope.relations) ? $rootScope.relations : [];
 
 	var dataLoadedCallback = function(event, data) {
-		if (data instanceof Array && $rootScope.loaded.relations) 
-		{
+		if (data instanceof Array && $rootScope.loaded.relations) {
 			// Значит, это пришли экзамены
 			console.log('exams', JSON.parse(JSON.stringify(data)));
 			$rootScope.exams = JSON.parse(JSON.stringify(data));
