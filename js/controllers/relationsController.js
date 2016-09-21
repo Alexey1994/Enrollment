@@ -3,11 +3,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 	$scope.relations = ($rootScope.relations) ? $rootScope.relations : [];
 
 	var dataLoadedCallback = function(event, data) {
-		if (data instanceof Array && 
-			relations[0].hasOwnProperty('language') &&
-			relations[0].hasOwnProperty('name') &&
-			relations[0].hasOwnProperty('prefix') &&
-			relations[0].hasOwnProperty('type')) 
+		if (data instanceof Array && $rootScope.loaded.relations) 
 		{
 			// Значит, это пришли экзамены
 			console.log('exams', JSON.parse(JSON.stringify(data)));
@@ -20,6 +16,13 @@ app.controller('relationsController', function($scope, $rootScope) {
 			$rootScope.relations = JSON.parse(JSON.stringify(data));
 			$scope.relations = $rootScope.relations;
 			$rootScope.loaded.relations = true;
+
+			if (!$rootScope.loaded.exams) {
+				$rootScope.load("/exams");
+				$scope.$on('dataLoaded', dataLoadedCallback);
+			} else {
+				$scope.exams = $rootScope.exams;
+			}
 		}
 	}
 
@@ -27,11 +30,6 @@ app.controller('relationsController', function($scope, $rootScope) {
 		$rootScope.load("/relations");
 		$scope.$on('dataLoaded', dataLoadedCallback);
 	}	
-
-	if (!$rootScope.loaded.exams) {
-		$rootScope.load("/exams");
-		$scope.$on('dataLoaded', dataLoadedCallback);
-	}
 
 	$scope.newRelation = [];
 	$scope.addRelation = function() {	
