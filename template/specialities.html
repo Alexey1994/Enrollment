@@ -79,10 +79,9 @@
 
 
 	        		<div class="form-group">
-	        		<form>
 		        		<label>Название специальности</label>
-		        		<form name = "validName">
-		        			<input class="form-control" ng-model="newSpec.specialty" name = "nameSpec" required/>
+		        		<form name = "valName">
+		        			<input class="form-control" ng-model="newSpec.specialty" name = "Spec" required/>
 		        		</form>
 		        	</div>
 
@@ -109,7 +108,7 @@
 		        		</form>	
 		        	</div>
 
-		        	<div ng-show="validName.nameSpec.$error.required" class="alert alert-danger">
+		        	<div ng-show="valName.Spec.$error.required" class="alert alert-danger">
 	  					<strong>Ошибка!</strong> Заполните поле "Название"
 					</div>
 					<div ng-show="valScore.Score.$error.min" class="alert alert-danger">
