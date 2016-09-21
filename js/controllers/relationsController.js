@@ -6,11 +6,20 @@ app.controller('relationsController', function($scope, $rootScope) {
 	if (!$rootScope.loaded.relations) {
 		$rootScope.load("/relations");		
 		$scope.$on('dataLoaded', function(event, data) {
-			$rootScope.relations = data;
-			$scope.relations = $rootScope.relations;
-			$rootScope.loaded.relations = true;
+			if (!$rootScope.loaded.exams) {
+				$rootScope.load("/exams");				
+				$rootScope.relations = data;
+				$scope.relations = $rootScope.relations;
+				$rootScope.loaded.relations = true;
 
-			console.log(data, $scope.relations);
+				$scope.$on('dataLoaded', function(event, data) {
+					$rootScope.exams = data;
+					$scope.exams = $rootScope.exams;
+					$rootScope.loaded.exams = true;
+
+					console.log('Exams', $scope.exams, 'relations', $scope.relations)
+				}
+			}			
 		});		
 	}
 
