@@ -32,7 +32,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 
 	$scope.newRelation = [];
 	$scope.editRelation = function(index) {
-		$scope.editIndex = $index;
+		$scope.editIndex = index;
 	}
 
 	$scope.addRelation = function() {	
