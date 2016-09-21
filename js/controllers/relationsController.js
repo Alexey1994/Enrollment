@@ -5,18 +5,18 @@ app.controller('relationsController', function($scope, $rootScope) {
 	if (!$rootScope.loaded.relations) {
 		$rootScope.load("/relations");		
 		$scope.$on('dataLoaded', function(event, relations) {
-			if (!$rootScope.loaded.exams) {				
-				$rootScope.relations = JSON.parse(JSON.stringify(relations));
-				$scope.relations = $rootScope.relations;
-				$rootScope.loaded.relations = true;
+			console.log('relations', JSON.parse(JSON.stringify(relations)));
+			$rootScope.relations = JSON.parse(JSON.stringify(relations));
+			$scope.relations = $rootScope.relations;
+			$rootScope.loaded.relations = true;
 
+			if (!$rootScope.loaded.exams) {
 				$rootScope.load("/exams");
 				$scope.$on('dataLoaded', function(event, exams) {
+					console.log('exams', JSON.parse(JSON.stringify(exams)));
 					$rootScope.exams = JSON.parse(JSON.stringify(exams));
 					$scope.exams = $rootScope.exams;
-					$rootScope.loaded.exams = true;
-
-					console.log('Exams', $scope.exams, 'relations', $scope.relations)
+					$rootScope.loaded.exams = true;					
 				})
 			}			
 		});		
