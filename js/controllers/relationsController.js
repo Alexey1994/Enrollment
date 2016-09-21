@@ -14,6 +14,7 @@ app.controller('relationsController', function($scope, $rootScope) {
 		});		
 	}
 
+	$scope.newRelation = [];
 	$scope.addRelation = function() {	
 		var validated = true;
 
@@ -37,6 +38,6 @@ app.controller('relationsController', function($scope, $rootScope) {
 	}
 	
 	$scope.save = function() {						
-		$rootScope.save("/realtions/save", $scope.relations, $scope);
+		$rootScope.save("/relations/save", $scope.relations, $scope);
 	}
 })	
